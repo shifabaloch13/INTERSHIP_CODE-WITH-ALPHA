@@ -1,0 +1,64 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  .gallery img {
+    max-width: 100%;
+    height: auto;
+    width: 200px; /* Adjust this if needed */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.03);
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+  }
+  
+  .popup img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+  }
+  
+  .popup .controls {
+    margin-top: 12px;
+  }
+  
+  .popup button, .popup span {
+    background-color: #fff;
+    border: none;
+    margin: 0 6px;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  #close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 24px;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
