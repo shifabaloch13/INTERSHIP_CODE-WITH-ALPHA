@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Shifa</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function showMessage(event) {
+      event.preventDefault();
+      alert("Thank you! I will respond to your message soon.");
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Shifa</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container">
+    <h2>Contact Me</h2>
+    <form onsubmit="showMessage(event)" class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Shifa. All rights reserved.</p>
+  </footer>
+</body>
+</html>

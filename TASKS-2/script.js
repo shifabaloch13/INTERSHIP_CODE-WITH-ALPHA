@@ -12,32 +12,41 @@ document.querySelectorAll(".btn").forEach((button) => {
     const action = button.dataset.action;
     const value = button.textContent;
 
-    if (!isNaN(value) || value === ".") {
-      if (value === "." && current.includes(".")) return;
+    // Handle number or decimal input
+    if (!action) {
+      if (value === "." && current.includes(".")) return; // Prevent multiple decimals
       current += value;
-    } else if (action === "clear") {
+    }
+
+    // Handle actions
+    else if (action === "clear") {
+      // Clear the display and reset values
       current = "";
       previous = "";
       operator = null;
     } else if (action === "delete") {
+      // Delete the last character
       current = current.slice(0, -1);
     } else if (action === "=") {
+      // Perform the calculation when '=' is clicked
       if (operator && previous !== "" && current !== "") {
         current = eval(`${previous} ${operator} ${current}`).toString();
         operator = null;
         previous = "";
       }
     } else {
-      if (current === "") return;
-      if (previous !== "") {
+      // Handle operators (+, -, *, /)
+      if (current === "") return; // Prevent operator input without a number
+      if (previous !== "" && operator !== null) {
         current = eval(`${previous} ${operator} ${current}`).toString();
       }
-      operator = action;
-      previous = current;
-      current = "";
+      operator = action; // Store the operator
+      previous = current; // Store the current value as the previous value
+      current = ""; // Reset current for the next number
     }
-    updateDisplay();
+
+    updateDisplay(); // Update the display after each button press
   });
 });
 
-updateDisplay();
+updateDisplay(); // Initialize display when page loads
